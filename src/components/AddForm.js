@@ -26,14 +26,14 @@ const AddForm = (props) => {
             //dispatch a custom error action
             props.errorMessage("Name, position and nickname fields are required.");
         } else {
-            const newSmurf = {
-                name: state.name,
-                position: state.position,
-                nickname: state.nickname,
-                description: state.description,
-                id: Date.now()
-            };
-            props.addSmurf(newSmurf);
+            // const newSmurf = {
+            //     name: state.name,
+            //     position: state.position,
+            //     nickname: state.nickname,
+            //     description: state.description,
+            //     id: Date.now()
+            // };
+            props.addSmurf(state)
             //dispatch an addSmurf action
         }
     }
