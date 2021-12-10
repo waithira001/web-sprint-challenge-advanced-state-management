@@ -113,8 +113,22 @@ Be prepared to demonstrate your understanding of this week's concepts by answeri
 
 1. What problem does the context API help solve?
 
+makes prop drilling easier to access and substitute redux if it used with useReducer
+
 2. In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+`actions`: part of reducers because it describes what happens with reducers return new states and bases of that action.
+
+`'reducers`: pure function that takes actions and previous states of the application to return new states. 
+
+`stere`: holds the whole state tree of the app. 
+
+`single source of truth`: the only way to change data in UI dispatches redux actions that change state within the redux reducer. React components watch the reducer and if there are changes the UI will change as well. The store is not a class. Its an object with few methods. 
 
 3. What does `redux-thunk` allow us to do? How does it change our `action-creators`?
 
+a middleware that can let coders write action-creators that returns functions instead of actions. 
+
 4. What is your favorite state management system you've learned and this sprint? Please explain why!
+
+I really dont have any favorites. 
