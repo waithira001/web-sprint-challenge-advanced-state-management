@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { setError, addSmurf } from '../actions';
+import {addSmurfs, errorMessage } from '../actions';
 import Smurf from './Smurf';
 
 const AddForm = (props) => {
@@ -12,7 +12,6 @@ const AddForm = (props) => {
     });
 
     //remove when error state is added
-    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = e => {
         setState({
@@ -25,8 +24,7 @@ const AddForm = (props) => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
             //dispatch a custom error action
-            setErrorMessage("All field must be filled in!");
-
+            props.errorMessage("Name, position and nickname fields are required.");
         } else {
             const newSmurf = {
                 name: state.name,
@@ -62,12 +60,14 @@ const AddForm = (props) => {
             {
                 errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
             }
-            <button>Submit Smurf</button>
+            <button onClick={handleSubmit}>Submit Smurf</button>
         </form>
     </section>);
 }
+export default connect(null,{addSmurfs,errorMessage})(AddForm);
 
-export default connect(null, { addSmurf })(AddForm);
+
+// export default connect(null, { addSmurf })(AddForm);
 
 // export default AddForm;
 
