@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { fetchSmurfs } from './actions';
+import axios from 'axios';
 
 
 import AddForm from './components/AddForm';
@@ -13,6 +14,7 @@ import "./App.css";
 class App extends Component {
     componentDidMount()
     {
+      console.log("didMount");
         this.props.fetchSmurfs();
     }
 
@@ -31,6 +33,8 @@ class App extends Component {
     }
   
 }
+
+
 export default connect(null, { fetchSmurfs })(App);
 
 // export default App;
