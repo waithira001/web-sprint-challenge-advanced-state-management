@@ -9,7 +9,7 @@ const AddForm = (props) => {
     });
 
     //remove when error state is added
-    const errorMessage = "";
+    const [errorMessage, setErrorMessage] = useState("");
 
     const handleChange = e => {
         setState({
@@ -22,7 +22,17 @@ const AddForm = (props) => {
         e.preventDefault();
         if (state.name === "" || state.position === "" || state.nickname === "") {
             //dispatch a custom error action
+            setErrorMessage("All field must be filled in!");
+
         } else {
+            const newSmurf = {
+                name: state.name,
+                position: state.position,
+                nickname: state.nickname,
+                description: state.description,
+                id: Date.now()
+            };
+            props.addSmurf(newSmurf);
             //dispatch an addSmurf action
         }
     }
