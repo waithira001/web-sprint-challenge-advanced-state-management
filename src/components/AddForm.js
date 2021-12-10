@@ -33,7 +33,7 @@ const AddForm = (props) => {
             //     description: state.description,
             //     id: Date.now()
             // };
-            props.addSmurf(state)
+            props.addSmurfs(state);
             //dispatch an addSmurf action
         }
     }
@@ -58,7 +58,7 @@ const AddForm = (props) => {
                 <textarea onChange={handleChange} value={state.description} name="description" id="description" />
             </div>
             {
-                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: {errorMessage}</div>
+                errorMessage && <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error: Please complete the form {errorMessage}</div>
             }
             <button onClick={handleSubmit}>Submit Smurf</button>
         </form>
